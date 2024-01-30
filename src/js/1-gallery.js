@@ -1,4 +1,5 @@
 const gallery = document.querySelector('.gallery')
+console.log(document.querySelector('.gallery'));
 
 const images = [
     {
@@ -77,12 +78,12 @@ images.forEach((image) => {
     listItem.classList.add('gallery-item');
 
     const imageLink = document.createElement('a');
-    imageLink.classList.add('large-image.jpg');
+    imageLink.classList.add('gallery-link');
     imageLink.href = image.original;
 
     const imageView = document.createElement('img');
     imageView.classList.add('gallery-image');
-    imageView.src = small - image.jpg;
+    imageView.src = image.preview;
     imageView.alt = image.description;
 
     imageLink.appendChild(imageView);
@@ -91,10 +92,11 @@ images.forEach((image) => {
     gallery.appendChild(listItem);
 });
 
-new SimpleLightbox('.gallery a', {
+const lightbox = new SimpleLightbox('.gallery a', {
     captions: true,
     captionDelay: 250,
     captionData: 'description',
     captionPosition: 'bottom',
 });
-gallery.on('show.simplelightbox');
+// gallery.on('show.simplelightbox');
+lightbox.open();
