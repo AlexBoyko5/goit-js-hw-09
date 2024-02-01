@@ -95,18 +95,6 @@ images.forEach((image) => {
 const lightbox = new SimpleLightbox('.gallery a', {
     captions: true,
     captionDelay: 250,
-    captionType: 'attr',
-    captionData: 'description',
     captionPosition: 'bottom',
-
-});
-
-
-lightbox.on('show.simplelightbox', function (event) {
-    const description = event.description;
-    lightbox.caption.innerHTML = description;
-
-    // setTimeout(function () {
-    //     lightbox.open();
-    // }, 250);
+    captionData: 'description',
 });
