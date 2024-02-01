@@ -1,6 +1,10 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Montserrat", sans-serif;
+}
+
+.li {
+    list-style: none;
 }
 
 .gallery {
@@ -22,9 +26,9 @@ body {
     flex-shrink: 0;
 }
 
-/* .gallery-item:hover {
+.gallery-item:hover {
     transform: scale(1.04);
-} */
+}
 
 .gallery-image {
     width: 360px;
