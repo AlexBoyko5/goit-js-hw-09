@@ -1,5 +1,9 @@
+// Сonnect the CSS code of the SimpleLightbox library to our code.
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
 const gallery = document.querySelector('.gallery')
-console.log(document.querySelector('.gallery'));
+// console.log(document.querySelector('.gallery'));
 
 const images = [
     {
@@ -67,12 +71,6 @@ const images = [
     },
 ];
 
-// Сonnect the CSS code of the SimpleLightbox library to our code.
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
-
-// Creating gallery items and adding them to the ul.gallery.
-
 images.forEach((image) => {
     const listItem = document.createElement('li');
     listItem.classList.add('gallery-item');
@@ -88,7 +86,6 @@ images.forEach((image) => {
 
     imageLink.appendChild(imageView);
     listItem.appendChild(imageLink);
-
     gallery.appendChild(listItem);
 });
 
@@ -96,5 +93,6 @@ const lightbox = new SimpleLightbox('.gallery a', {
     captions: true,
     captionDelay: 250,
     captionPosition: 'bottom',
-    captionData: 'description',
+    captionType: 'attr',
+    captionData: 'alt',
 });
