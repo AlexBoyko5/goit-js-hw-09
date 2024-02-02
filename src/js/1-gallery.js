@@ -70,23 +70,15 @@ const images = [
     },
 ];
 
-images.forEach((image) => {
-    const listItem = document.createElement('li');
-    listItem.classList.add('gallery-item');
+const markup = images.map((image) => `
+  <li class="gallery-item">
+    <a class="gallery-link" href="${image.original}">
+      <img class="gallery-image" src="${image.preview}" alt="${image.description}" />
+    </a>
+  </li>
+`).join('');
 
-    const imageLink = document.createElement('a');
-    imageLink.classList.add('gallery-link');
-    imageLink.href = image.original;
-
-    const imageView = document.createElement('img');
-    imageView.classList.add('gallery-image');
-    imageView.src = image.preview;
-    imageView.alt = image.description;
-
-    imageLink.appendChild(imageView);
-    listItem.appendChild(imageLink);
-    gallery.appendChild(listItem);
-});
+gallery.innerHTML = markup;
 
 const lightbox = new SimpleLightbox('.gallery a', {
     captions: true,
