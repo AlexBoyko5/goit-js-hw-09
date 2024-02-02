@@ -3,7 +3,6 @@ import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 const gallery = document.querySelector('.gallery')
-// console.log(document.querySelector('.gallery'));
 
 const images = [
     {
