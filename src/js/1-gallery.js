@@ -1,6 +1,6 @@
 // Сonnect the CSS code of the SimpleLightbox library to our code.
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const gallery = document.querySelector('.gallery')
 
@@ -70,7 +70,7 @@ const images = [
     },
 ];
 
-const markup = images.map((image) => `
+const markup = images.map(image => `
   <li class="gallery-item">
     <a class="gallery-link" href="${image.original}">
       <img class="gallery-image" src="${image.preview}" alt="${image.description}" />
@@ -78,7 +78,7 @@ const markup = images.map((image) => `
   </li>
 `).join('');
 
-gallery.innerHTML = markup;
+gallery.insertAdjacentHTML("beforeend", markup);
 
 const lightbox = new SimpleLightbox('.gallery a', {
     captions: true,
