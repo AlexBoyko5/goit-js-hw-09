@@ -21,28 +21,9 @@ const loadStateFromLocalStorage = () => {
     }
 };
 
-
-// form.addEventListener('input', (event) => {
-//     if (event.target === emailInput || event.target === messageInput) {
-//         saveStateToLocalStorage();
-//     }
-// });
-
-
-// form.addEventListener('submit', (event) => {
-//     event.preventDefault();
-//     console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
-//     localStorage.clear();
-//     emailInput.value = '';
-//     messageInput.value = '';
-//     console.log({
-//         email: emailInput.value,
-//         message: messageInput.value,
-//     });
-// });
-
-form.addEventListener('input', () => {
-    saveStateToLocalStorage();
+form.addEventListener('input', (event) => {
+    if (event.target === emailInput || event.target === messageInput)
+        saveStateToLocalStorage();
 });
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -53,7 +34,7 @@ form.addEventListener('submit', (event) => {
             email: emailValue,
             message: messageValue,
         });
-        localStorage.clear();
+        localStorage.removeItem('feedback-form-state');
         emailInput.value = '';
         messageInput.value = '';
     } else {
